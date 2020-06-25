@@ -1,11 +1,26 @@
 <app-top-bar></app-top-bar>
+<div style="text-align:center">
+  <h1>
+    Welcome
+  </h1>
+  <button (click)="getData()">Fetch Data</button>
+ </div>
+
+ <div *ngFor="let item of data | keyvalue">
+  {{item.key}}
+
+  <button class="float-right" class="btn btn-primary" (click)="getFeature(item.key);">
+    <i aria-hidden="true"></i> <span class="ml-4">{{item.key}}</span>
+  </button>
+  <hr>
+</div>
+
+<div>
+  <code>
+      <pre>{{this.info |json}}</pre>
+  </code>
+</div>
 
 <div class="container">
   <router-outlet></router-outlet>
 </div>
-
-<!-- 
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at http://angular.io/license
--->
